@@ -23,6 +23,7 @@ def DDperRegion(year = None, region = '합계'):
 def DDNRegion(year):
     filepath = os.path.abspath('3d/data/시도구군별_음주운전_데이터_2005_2019.csv')
     df = pd.read_csv(filepath, index_col=0)
+    df = df.drop(['합계'], axis=0)
     return list(df.index), list(df[year])
 
 # 해당 연도의 음주운전 사고건수
