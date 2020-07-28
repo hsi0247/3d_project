@@ -19,6 +19,12 @@ def DDperRegion(year = None, region = '합계'):
     else:
         return df.loc[region, year]
 
+# 해당 연도의 지역명과 음주운전 사고건수
+def DDNRegion(year):
+    filepath = os.path.abspath('3d/data/시도구군별_음주운전_데이터_2005_2019.csv')
+    df = pd.read_csv(filepath, index_col=0)
+    return list(df.index), list(df[year])
+
 # 해당 연도의 음주운전 사고건수
 # def DDperYear(year):
 #     filepath = os.path.abspath('3d/data/월별음주운전사고건수/시도구군별_음주운전_데이터_2005_2019.csv')
@@ -26,12 +32,13 @@ def DDperRegion(year = None, region = '합계'):
 #     return list(df.columns), df.loc['합계'].values
 
 if __name__ == '__main__':
-    print(DDPerMonthRegion('2019'))
-    print()
-    print(DDPerMonthRegion('2019', region = '강원'))
-    print()
-    print(DDperRegion())
-    print()
-    print(DDperRegion(region = '강원'))
-    print()
-    print(DDperRegion(year = '2019', region = '강원'))
+    # print(DDPerMonthRegion('2019'))
+    # print()
+    # print(DDPerMonthRegion('2019', region = '강원'))
+    # print()
+    # print(DDperRegion())
+    # print()
+    # print(DDperRegion(region = '강원'))
+    # print()
+    # print(DDperRegion(year = '2019', region = '강원'))
+    print(DDNRegion('2018'))
