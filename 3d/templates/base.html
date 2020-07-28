@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <!-- Scroll Animation CSS -->
+    <link rel="stylesheet" href="https://wowjs.uk/css/libs/animate.css">
+    
+    <script src="https://wowjs.uk/dist/wow.min.js"></script>
+
+    <!-- font : Do Hyeon -->
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/css/animate.css">
+    <script src="../static/js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+    
+</head>
+<body id="page_top" style="overflow-x:hidden">
+    {% include "floating.html" %}
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
