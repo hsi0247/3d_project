@@ -9,14 +9,14 @@ if __name__ == '__main__':
         from os import path
         print(path.dirname( path.dirname( path.abspath(__file__) ) ))
         sys.path.append(path.dirname( path.dirname( path.abspath(__file__) ) ))
-        # from function.모듈이름 import 함수이름
+        from function.functions import DDPerMonthRegion
     else:
-        # from ..function.모듈이름 import 함수이름
-        pass
+        from ..function.functions import DDPerMonthRegion
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    years, values = DDPerMonthRegion('2019')
+    return jsonify(years = years, values = values)
 
 if __name__ =='__main__':
     app.run(debug=True,host='localhost',port=8890)
