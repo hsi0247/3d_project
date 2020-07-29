@@ -38,7 +38,7 @@ def show_year_area_chart():
     year2 = request.form.get('year2')
     areas, values = DDNRegion(year2)
     print(areas)
-    return jsonify(areas = areas, values = values)
+    return jsonify(areas = areas, values = values, year2=year2)
 
 if __name__ =='__main__':
     app.run(debug=True,host='localhost',port=8890)
