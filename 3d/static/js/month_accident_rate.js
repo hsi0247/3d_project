@@ -13,11 +13,13 @@ function showMonthChart(){
                 labels: result.years,
                 datasets: [{
                     label: '사고 건수',
-                    data: result.values
+                    data: result.values,
+                    fill: false,
+                    lineTension: 0
                 }]
             };
             var month_barChart = new Chart(ctx1, {
-                type: 'bar',
+                type: 'line',
                 data: data,
                 options: {
                     title: {
@@ -26,10 +28,18 @@ function showMonthChart(){
                         position : 'top',
                         fontSize : 25
                     },
+                    responsive : false,
                     scales: {
+                        xAxes: [{
+                            gridLines: {
+                                display : false
+                            }
+                        }],
                         yAxes: [{
                             ticks: {
-                                 beginAtZero: true
+                                max : 3500,
+                                stepSize : 500,
+                                beginAtZero: true
                             }
                         }]
                     }

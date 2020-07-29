@@ -9,7 +9,7 @@
 
     <!-- Main Title -->
     <div class="container mb-5" align="center" style="height:100%;">
-      <img src="../static/img/Logo_1.png" style="height: 700px;">
+      <img src="../static/img/Logo_2.png" style="height: 700px;">
     </div>
     
     <br><br>
@@ -22,14 +22,15 @@
     <section class="define" id="define" style="background-image: url('../static/img/drunk-driving.jpg'); background-size: cover; height: 750px; display: block; margin: 0 auto; background-repeat: no-repeat;">
         <br>
         <br>
-        <div class="container  wow bounceInRight" >
-            <div class="card mb-3" style="border: none; width: 400px; display: block; margin-left: 950px; margin-top: 400px; font-family: 'Do Hyeon'; " >
+        <div class="container  wow bounceInLeft" >
+            <div class="card mb-3" style="background-color: rgb(164, 205, 50); border: none; width: 400px; display: block; margin-left: 800px; margin-top: 400px; font-family: 'Do Hyeon'; " >
                 <div class="row no-gutters ">
                   <div class="col-md-8">
-                    <div class="card-body">
+                    <div class="card-body" style="width: 400px;">
                         <h3 class="card-title">음주 운전이란?</h5>
                         <div class="card-text">
-                            <p>술을 마시고 운전을 하는 것을 말하며,</p>
+                            <p><strong style="color: red;">술을 마시고</strong> 혈중 알코올의 영향이 남아 있는 아래에서 <strong style="color: red;">운전하는 행위</strong>이다.
+                              음주운전자 자신 뿐만 아니라 도로 위의 다른 운전자들의 생명까지 위협하는 행위이기 때문에 대부분의 국가에서 불법이며 처벌도 중범죄에 준하는 수준으로 매우 강력하게 하고 있다.</p>
                         </div>
                     </div>
                   </div>
@@ -52,31 +53,112 @@
     <br><br>
     
     <!-- Drunk Drive in Korea -->
-    <section class="accKor">
+  <!--     
+  전국 연도별 사고건수 데이터 (막대_
+  전국 월별 사고건수 데이터 (boundary
+
+  지역별 polium 데이터
+  ㄴ원그래프? -->
+  
+    <section class="accKor" style=" font-family: 'Do Hyeon'; " align="center">
         <div class="container">
+          <div class="card-body">
+            <h5 class="card-title">한국의 음주운전 사고</h5>
+            <div class="card-text">
+              <p>
+                음주운전 사고
+                <br>
+                통계자료
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm">
+              <div class="card-body" align="center">
+                <canvas id="total_accident"  style="width: 900px;">
+                  <!-- <script src="{{ url_for('static', filename='js/total_accident_rate_copy.js') }}"></script> -->
+                  <script>
+                    var ctx10 = document.getElementById("total_accident");
+                    var data = {
+                        labels: ['2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019'],
+                        datasets: [{
+                            label: '사고 건수',
+                            data: [26460, 29990, 28416, 26873, 28207, 28641, 28461, 29093, 26589, 24043, 24399, 19769, 19517, 19381, 15708]
+                        }]
+                    };
+                    var month_barChart = new Chart(ctx10, {
+                        type: 'bar',
+                        data: data,
+                        options: {
+                                title: {
+                                    display: true,
+                                    text: '전국 연도별 음주운전 교통사고',
+                                    position : 'top',
+                                    fontSize : 25,
+                                },
+                                responsive: false,
+                                scales: {
+                                  xAxes: [{
+                                      gridLines: {
+                                          display : false
+                                      }
+                                  }],
+                                  yAxes: [{
+                                    ticks: {
+                                      max : 40000,
+						                          stepSize : 5000,
+                                      beginAtZero: true,
+                                    }
+                                  }]
+                                }
+                            }
+                    });
+                  </script>
+                </canvas>
+              </div>
+            </div>
+          </div>
           <div class="row">
             <div class="container">
+              <pre>호에에엥ㄱ</pre>
               <div class="row">
                 <div class="col-sm">
                   <!-- 지도 표 -->
-                    <img src="../static/img/map.png" style="display: block; margin: 0 auto; max-width: 600px; max-height: 600px;" >  
+                  <div class="container">
+                    <iframe src="https://repo.yona.io/files/12646" style="height: 500px; width: 400px;"></iframe>
+                  </div>
                 </div>
                 <div class="col-sm">
                   <div class="container">
-                    <div class="row">
-                      <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">한국의 음주운전 사고</h5>
-                            <div class="card-text">
-                                <p>음주운전 사고
-                                  <br>
-                                  통계자료</p>
-                            </div>
+                          <div class="row">
+                            <a style="font-size: 30px; margin-right: 10px;">년도를 선택하세요. </a>
+                            <select name="selBox_year2", id='selBox_year2'>
+                                <option value="yearDefault">년도</option>
+                                <option value="2005">2005년</option>
+                                <option value="2006">2006년</option>
+                                <option value="2007">2007년</option>
+                                <option value="2008">2008년</option>
+                                <option value="2009">2009년</option>
+                                <option value="2010">2010년</option>
+                                <option value="2011">2011년</option>
+                                <option value="2012">2012년</option>
+                                <option value="2013">2013년</option>
+                                <option value="2014">2014년</option>
+                                <option value="2015">2015년</option>
+                                <option value="2016">2016년</option>
+                                <option value="2017">2017년</option>
+                                <option value="2018">2018년</option>
+                                <option value="2019">2019년</option>                                  
+                            </select>
+                            <button onclick="showYearAreaChart()">선택</button>
+                          </div>
+                          <br>
                         </div>
-                      </div>
-                      <div class="w-100"></div>
-                      <!-- 차트 -->
-                    </div>
+                        <div id=yearAreaGraph-container>
+                          <canvas id="year_area_accident" width="500" height="500"> </canvas>
+                        </div>
+                        <script src="/static/js/year_area_accident_rate.js?version=1.13"></script>
                   </div>
                 </div>
               </div>
@@ -90,31 +172,92 @@
     <br>
     <br>
     <br>
-    <br>
+    <br   id="YoonLaw">
     <br>
 
     <!-- YoonLaw -->
-    <section class="YoonLaw" >
+    <section class="YoonLaw" style=" font-family: 'Do Hyeon'; height: 700px;">
           <div class="container">
             <div class="row">
               <div class="container">
-                <div class="row">
-                  <img src="../static/img/AccIcon.png" alt="" style="width: 50px;"  id="YoonLaw">
-                  <div class="w-100"></div>
-                  <div class="col-md-8">
-                    <div class="card-body" style="width: 500px;">
-                        <h5 class="card-title">'윤창호' 법</h5>
-                        <div class="card-text">
-                            <p>그러던 중, 2018년 안타까운 사건이 있었다.zㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</p>
+                  <!-- 윤창호법 -->
+                  <div class="col-md-8" align="center">
+                    <div class="card-body" style="width: 1125px;">
+                        <h5 class="card-title" align="center" style="font-size: 60px;">
+                          '윤창호' 법
+                          <img src="../static/img/AccIcon.png" alt="" style="width: 50px;"  >
+                        </h5>
+                        <div class="card-text" style="font-size: 35px; white-space: pre-line; width: 900px;">2018년 9월, 안타까운 사고가 있었습니다.
+카투사 복무를 하고 있던 22살 윤창호씨가 부산 해운대에서
+만취운전자가 몰던 차량에 치여서 사망하는 사고였습니다.
+이 사건 이후, 음주운전 관련 처벌을 강화하는 법안이 발의되었는데,
+이것이 바로 <strong>'윤창호법'</strong>입니다.
+
+윤창호법으로 법안은 2가지가 개정되었으며,
+각각 2018년 12월, 2019년 6월에 시행되었습니다.
                         </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+    </section>
+<br id="YoonLaw_1">
+    <!-- YoonLaw_1 -->
+    <section class="YoonLaw" style=" font-family: 'Do Hyeon'; height: 700px; "    >
+      <div class="container">
+        <div class="row">
+          <div class="container">
+            <!-- 1차 -->
+            <div class="col-sm">
+              <div class="card-body" style="width: 600px; background-color: white;" >
+                  <h5 class="card-title" style="font-size: 60px;">1차 윤창호법</h5>
+                  <img src="../static/img/yoon_first.png" style="display: block; margin: 0 auto; width: 600px;">
+                  <div class="card-text" style="font-size: 35px; white-space: pre-line;">음주운전으로 상해를 입힌 경우 처벌강도를 10년이하의 징역에서 <strong style="color: red;">15년 이하의 징역</strong>으로, 벌금은 최소 500만원에서 <strong style="color: red;">1000만원</strong>까지 강화되었으며, 사망에 이르게 한 경우에는 최대 <strong style="color: red;">무기징역</strong>을 받을 수 있도록 강화되었습니다.
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<br id="YoonLaw_2">
+<br>
+<br>
+<!-- YoonLaw_2 -->
+    <section class="YoonLaw" style=" font-family: 'Do Hyeon'; height: 700px;">
+      <div class="container">
+        <div class="row">
+          <div class="container" align="right">
+              <!-- 2차 -->
+              <div class="row">
+                <div class="col-sm">
+                  <img src="../static/img/yoon_second.png" align="right" style="display: block;margin-top: 10px;  width: 680px;">
+                </div>
+                <div class="col-sm">
+                  <div class="card-body" style="width: 400px;" align="left"   >
+                    <h5 class="card-title" style="font-size: 50px;">2차 윤창호법</h5>
+                    <div class="card-text" style="font-size: 30px; white-space: pre-line;">왼쪽 표에 나와 있듯이 개정 전/후 벌칙 수준 뿐만 아니라
+                      적발 기준 혈중 알코올농도도 바뀌었습니다. 기존의 경우, <strong style="color: red;">혈중 알코올 농도가 0.03%</strong> 수준이면,
+                      훈방으로 끝났지만, 개정 이후에는 <strong style="color: red;">처벌대상이 되었습니다</strong>.
                     </div>
                   </div>
                 </div>
               </div>
-              <img src="../static/img/yoon.png" style="display: block; margin: 0 auto; width: 1000px;"  >  
-            </div>
           </div>
+        </div>
+      </div>
     </section>
+
+
+
+
+
+
+
+
+
 
     <br>
     <br>
@@ -124,22 +267,48 @@
     <br>
     <br>
     
-
-    <!-- name is not prepared yet -->
-    <section class="graph">
+    <!-- graph -->
+    <section class="graph" style=" font-family: 'Do Hyeon'; ">
         <div class="container">
-            <div class="card mb-3" style="border: none; max-width: 600px; display: block; margin: 0px auto;" >
-                <div class="row no-gutters">
-                  <div class="col-md-4">
-                    <img src="../static/img/drunk_drive.jpg" class="card-img" alt="">
-                  </div>
+            <div class="card mb-3" style="border: none; display: block; margin: 0px auto;" align="center">
                   <div class="col-md-8">
-                    <div class="card-body">
+                    <div class="card-body" align="center">
                         <h5 class="card-title">'윤창호' 법 이후</h5>
                         <div class="card-text">
                             <p>그렇다면 '윤창호'법 제정 이후, 음주운전 사고에는 어떠한 변화가 왔을까?</p>
-                            <p>통계자료</p>
                         </div>
+                    </div>
+                    <div>
+                      <div>
+                        <h4 class="page-header">년도 를 선택하세요.</h4>
+                        <div class="row">
+                            <select name="selBox_year", id='selBox_year'>
+                                <option value="yearDefault">년도</option>
+                                <option value="2005">2005년</option>
+                                <option value="2006">2006년</option>
+                                <option value="2007">2007년</option>
+                                <option value="2008">2008년</option>
+                                <option value="2009">2009년</option>
+                                <option value="2010">2010년</option>
+                                <option value="2011">2011년</option>
+                                <option value="2012">2012년</option>
+                                <option value="2013">2013년</option>
+                                <option value="2014">2014년</option>
+                                <option value="2015">2015년</option>
+                                <option value="2016">2016년</option>
+                                <option value="2017">2017년</option>
+                                <option value="2018">2018년</option>
+                                <option value="2019">2019년</option>                                  
+                            </select>
+                      
+                            <button onclick="showMonthChart()" id="setDateButton">선택</button>
+                        </div>
+                        <br />
+                      </div>
+                      <div id='monthGraph-container'>
+                        <canvas id="month_accident" style="width : 800px;" ></canvas> 
+                      </div>
+                      <script src="/static/js/month_accident_rate.js?version=1.13"></script>
                     </div>
                   </div>
                 </div>
@@ -163,17 +332,17 @@
     <br >
     
     <!-- Finally saying -->
-    <section id="finally" class="finally" id="define" style="background-image: url('../static/img/ending.jpg'); background-size: cover; height: 760px; display: block; margin: 0 auto; background-repeat: no-repeat;">
+    <section id="finally" class="finally" id="define" style=" font-family: 'Do Hyeon'; background-image: url('../static/img/ending.jpg'); background-size: cover; height: 760px; display: block; margin: 0 auto; background-repeat: no-repeat;">
       <br>
       <br>
       <div class="container" >
-          <div class="card mb-3" style="border: none; width: 380px; display: block; margin-left: 950px; margin-top: 400px; font-family: 'Do Hyeon'; " >
+          <div class="card mb-3 wow bounceInLeft" style="border: none; width: 380px; display: block; margin-left: 950px; margin-top: 400px; font-family: 'Do Hyeon'; " >
               <div class="row no-gutters">
                 <div class="col-md-8">
                   <div class="card-body">
                       <h3 class="card-title">마치며</h5>
                       <div class="card-text">
-                          <p>술을 마시고 운전을 하는 것을 말하며,</p>
+                          <p>지금까지 음주운전 데이터와 윤창호 법에 대해 알아보았습니다. </p>
                       </div>
                   </div>
                 </div>
@@ -195,18 +364,18 @@
     <br>
     
     <!-- Additional Resourses -->
-    <section class="resourse">
+    <section class="resourse" style=" font-family: 'Do Hyeon'; ">
       <div class="container">
         <div class="card mb-3" style="border: none; max-width: 600px; display: block; margin: 0px auto;" >
           <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="../static/img/drunk_drive.jpg" class="card-img" alt="">
-            </div>
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title">더 알아보기</h5>
-                <div class="card-text">
-
+                <div class="card-text" align="center" style="  white-space: pre-line;">
+                  자료 출처
+                  <a href="http://taas.koroad.or.kr/">TAAS 교통사고 분석시스템</a>
+                  <a href="https://www.khealth.or.kr/alcoholstop">보건복지부,한국건강증진개발원</a>
+                </pre>
                 </div>
               </div>
             </div>

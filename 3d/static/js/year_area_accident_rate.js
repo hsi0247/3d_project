@@ -25,10 +25,18 @@ function showYearAreaChart(){
                         position : 'top',
                         fontSize : 25
                     },
+                    responsive:false,
                     scales: {
+                        xAxes: [{
+                            gridLines: {
+                                display : false
+                            }
+                        }],
                         yAxes: [{
                             ticks: {
-                                 beginAtZero: true
+                                max : 7500, 
+                                stepSize : 1500,
+                                beginAtZero: true
                             }
                         }]
                     }
