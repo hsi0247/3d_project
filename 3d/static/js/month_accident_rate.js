@@ -6,7 +6,7 @@ function showMonthChart(){
         dataType : "json",
         success : function(result) {
             document.getElementById("month_accident").remove();
-            $("#monthGraph-container").html('<canvas id="month_accident" width="400" height="400"></canvas>');
+            $("#monthGraph-container").html('<canvas id="month_accident" style="margin-right: 50px" width="800" height="500"></canvas>');
             var ctx1 = document.getElementById("month_accident");
             var data = ""
             data = {
@@ -15,7 +15,14 @@ function showMonthChart(){
                     label: '사고 건수',
                     data: result.values,
                     fill: false,
-                    lineTension: 0
+                    lineTension: 0,
+                    
+                    backgroundColor:
+                        'rgba(255,99,132,0.2)',
+                  
+                    borderColor:
+                        'rgba(255,99,132,1)',
+                    borderWidth: 1
                 }]
             };
             var month_barChart = new Chart(ctx1, {
@@ -37,9 +44,9 @@ function showMonthChart(){
                         }],
                         yAxes: [{
                             ticks: {
-                                max : 3500,
+                                max : 2000,
+                                min : 500,
                                 stepSize : 500,
-                                beginAtZero: true
                             }
                         }]
                     }
