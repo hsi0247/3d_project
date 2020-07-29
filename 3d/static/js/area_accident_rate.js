@@ -26,6 +26,11 @@ function showAreaChart(){
                         fontSize : 25
                     },
                     scales: {
+                        xAxes: [{
+                            gridLines: {
+                                display : false
+                            }
+                        }],
                         yAxes: [{
                             ticks: {
                                  beginAtZero: true

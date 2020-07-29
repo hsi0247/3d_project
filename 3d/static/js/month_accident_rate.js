@@ -6,18 +6,27 @@ function showMonthChart(){
         dataType : "json",
         success : function(result) {
             document.getElementById("month_accident").remove();
-            $("#monthGraph-container").html('<canvas id="month_accident" width="400" height="400"></canvas>');
+            $("#monthGraph-container").html('<canvas id="month_accident" style="margin-right: 50px" width="800" height="500"></canvas>');
             var ctx1 = document.getElementById("month_accident");
             var data = ""
             data = {
                 labels: result.years,
                 datasets: [{
                     label: '사고 건수',
-                    data: result.values
+                    data: result.values,
+                    fill: false,
+                    lineTension: 0,
+                    
+                    backgroundColor:
+                        'rgba(255,99,132,0.2)',
+                  
+                    borderColor:
+                        'rgba(255,99,132,1)',
+                    borderWidth: 1
                 }]
             };
             var month_barChart = new Chart(ctx1, {
-                type: 'bar',
+                type: 'line',
                 data: data,
                 options: {
                     title: {
@@ -26,10 +35,18 @@ function showMonthChart(){
                         position : 'top',
                         fontSize : 25
                     },
+                    responsive : false,
                     scales: {
+                        xAxes: [{
+                            gridLines: {
+                                display : false
+                            }
+                        }],
                         yAxes: [{
                             ticks: {
-                                 beginAtZero: true
+                                max : 2000,
+                                min : 500,
+                                stepSize : 500,
                             }
                         }]
                     }
