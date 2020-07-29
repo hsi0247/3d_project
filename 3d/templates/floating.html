@@ -13,7 +13,7 @@
         font-family: "Do Hyeon";
         background: white;
         padding: 5px;;
-        height: 350px;
+        height: 420px;
         width: 180px;
         z-index: 100;
         position: fixed;
@@ -21,10 +21,10 @@
         bottom: 100px;
         left: 20px;
     }
-
     
     .btn{
         font-family: "Do Hyeon";
+        font-size: 20px;
         background-color: black;
         color: white;
         margin-bottom: 5px;
@@ -35,7 +35,25 @@
         cursor: pointer;
     }
 
+    .small{
+        
+        
+        font-family: "Do Hyeon";
+        font-size: 15px;
+        background-color: gray;
+        color: white;
+        margin-top: -3px;
+        margin-bottom: 5px;
+        height: 30px;
+        width: 72px;
+        text-align: center;
+        transition-duration: 0.4s;
+        cursor: pointer;
+
+    }
+
     a.btn:hover, a.btn:active {background: white;border-color: black;}
+    
 </style>
 
 <main>
@@ -45,8 +63,13 @@
         </a>
         <a href="#define" class="btn button">음주운전이란?</a>
         <a href="#accKor" class="btn ">한국의 음주운전</a>
-        <a href="#YoonLaw" class="btn ">'윤창호' 법</a>
-        <a href="#graph" class="btn ">'윤창호' 법 이후</a>
+        <a href="#accKor" class="btn small">연도별</a>
+        <a href="#accLoc" class="btn small">지역별</a>
+        <a href="#YoonLaw" class="btn ">'윤창호'법</a>
+        
+        <a href="#YoonLaw_1" class="btn small">1차</a>
+        <a href="#YoonLaw_2" class="btn small">2차</a>
+        <a href="#graph" class="btn ">'윤창호'법 이후</a>
         <a href="#finally" class="btn ">마치며</a>
         <a HTREF href="#resourse" class="btn ">더 알아보기</a>
     </nav>
